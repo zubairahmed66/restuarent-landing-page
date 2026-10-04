@@ -1,0 +1,1567 @@
+/* ==========================================================================
+   1. CSS RESET & GLOBAL CONFIGURATION
+   ========================================================================== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+textarea,
+input,
+button {
+    background: none;
+    border: none;
+    font: inherit;
+}
+
+input {
+    width: 100%;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ==========================================================================
+   2. GLOBAL CSS VARIABLES
+   ========================================================================== */
+:root {
+    /* Colors */
+    --za-color-bg: #FFF0E7;
+    --za-color-bg2: #FFF0E780;
+    --za-color-text-dark: #612D05;
+    /* --za-color-text-muted: #6e5e54; */
+    --za-color-brand-orange: #e85d04;
+    --za-color-brand-green: #3f6212;
+    --za-color-brand-green-hover: #32500e;
+    --za-color-card-bg: #eebf96;
+    --za-color-white: #ffffff;
+
+    /* Typography */
+    --za-font-family-base: "Montserrat", sans-serif;
+    --za-font-family-serif: "Playfair Display", serif;
+
+    /* Layout */
+    --za-container-width: 1240px;
+    --za-header-height: 90px;
+
+    /* Transitions */
+    --za-transition-fast: 0.2s ease;
+    --za-transition-normal: 0.3s ease;
+}
+
+body {
+    background-color: var(--za-color-bg);
+    color: var(--za-color-text-dark);
+    font-family: var(--za-font-family-base);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   3. GLOBAL CONTAINER
+   ========================================================================== */
+.za-container {
+    width: 100%;
+    max-width: var(--za-container-width);
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+/* ==========================================================================
+   4. COMMON BUTTONS
+   ========================================================================== */
+.za-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 26px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background-color var(--za-transition-fast), transform var(--za-transition-fast);
+}
+
+.za-btn-primary {
+    background-color: var(--za-color-brand-green);
+    color: var(--za-color-white);
+}
+
+.za-btn-primary:hover {
+    background-color: var(--za-color-brand-green-hover);
+    transform: translateY(-2px);
+}
+
+/* Composite Button with Arrow Badge */
+.za-btn-composite {
+    display: inline-flex;
+    align-items: center;
+    gap: -1px;
+    text-decoration: none;
+}
+
+.za-btn-composite .za-btn-text {
+    background-color: var(--za-color-brand-green);
+    color: var(--za-color-white);
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background-color var(--za-transition-fast), transform var(--za-transition-fast);
+}
+
+.za-btn-composite .za-btn-icon {
+    background-color: var(--za-color-brand-orange);
+    color: var(--za-color-white);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: transform var(--za-transition-fast), background-color var(--za-transition-fast);
+
+    & i {
+        transform: rotate(-45deg);
+        transition: transform var(--za-transition-fast), background-color var(--za-transition-fast);
+    }
+}
+
+.za-btn-composite:hover .za-btn-text {
+    background-color: var(--za-color-brand-green-hover);
+}
+
+.za-btn-composite:hover .za-btn-icon {
+    transform: scale(1.05) rotate(5deg);
+
+    & i {
+        transform: rotate(-2deg);
+    }
+}
+
+/* ==========================================================================
+   5. HEADER SECTION
+   ========================================================================== */
+.za-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--za-header-height);
+    background-color: var(--za-color-bg);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    transition: box-shadow var(--za-transition-normal), background-color var(--za-transition-normal);
+}
+
+.za-header.za-scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    background-color: rgba(251, 243, 236, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.za-header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+.za-logo {
+    font-family: var(--za-font-family-serif);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--za-color-brand-orange);
+    letter-spacing: -0.5px;
+}
+
+/* Navbar */
+.za-nav-list {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.za-nav-link {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--za-color-text-dark);
+    transition: color var(--za-transition-fast);
+}
+
+.za-nav-link:hover,
+.za-nav-link.za-active {
+    color: var(--za-color-brand-orange);
+}
+
+/* Header Actions & Mobile Toggle */
+.za-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.za-menu-toggle {
+    display: none;
+    font-size: 22px;
+    color: var(--za-color-text-dark);
+    padding: 8px;
+}
+
+/* ==========================================================================
+   6. MOBILE SIDEBAR MENU
+   ========================================================================== */
+.za-sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--za-transition-normal), visibility var(--za-transition-normal);
+}
+
+.za-sidebar-overlay.za-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.za-sidebar {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 300px;
+    height: 100%;
+    background-color: var(--za-color-bg);
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+    transition: right var(--za-transition-normal);
+}
+
+.za-sidebar.za-active {
+    right: 0;
+}
+
+.za-sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+
+.za-sidebar-close {
+    font-size: 22px;
+    color: var(--za-color-text-dark);
+}
+
+.za-sidebar-body .za-nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.za-sidebar-body .za-nav-link {
+    font-size: 18px;
+}
+
+.za-sidebar-footer {
+    margin-top: auto;
+    padding-top: 24px;
+}
+
+.za-btn-full {
+    width: 100%;
+}
+
+/* ==========================================================================
+   7. HERO SECTION
+   ========================================================================== */
+.za-hero {
+    padding-top: 40px;
+    padding-bottom: 80px;
+    overflow: hidden;
+}
+
+.za-hero-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+/* Hero Content */
+.za-hero-subtitle {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--za-color-text-dark);
+    margin-bottom: 16px;
+}
+
+.za-hero-title {
+    font-family: var(--za-font-family-serif);
+    font-size: 54px;
+    line-height: 1.15;
+    font-weight: 700;
+    color: var(--za-color-text-dark);
+    margin-bottom: 24px;
+}
+
+.za-hero-title span {
+    font-style: italic;
+    color: var(--za-color-brand-orange);
+    font-weight: 600;
+}
+
+.za-hero-description {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--za-color-text-muted);
+    max-width: 480px;
+    margin-bottom: 36px;
+}
+
+/* Hero Image Card */
+.za-hero-image-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.za-hero-image-card {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    background-color: var(--za-color-card-bg);
+    padding: 0 0 16px 0;
+    border-radius: 20px;
+}
+
+.za-hero-img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 992px) {
+    .za-navbar {
+        display: none;
+    }
+
+    .za-menu-toggle {
+        display: block;
+    }
+
+    .za-hero-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .za-hero-content {
+        text-align: center;
+    }
+
+    .za-hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .za-hero-image-wrapper {
+        justify-content: center;
+    }
+
+    .za-hero-title {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 576px) {
+    .za-header-actions .za-btn-primary {
+        display: none;
+    }
+
+    .za-hero-title {
+        font-size: 32px;
+    }
+
+    .za-hero-img {
+        height: 380px;
+    }
+
+    .za-hero {
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
+}
+
+/* ==========================================================================
+   SERVICES SECTION STYLES
+   ========================================================================== */
+.za-services-section {
+    background-color: var(--za-color-bg2);
+    /* Muted taupe/grey background */
+    padding-top: 80px;
+    padding-bottom: 90px;
+    color: var(--za-color-white);
+}
+
+/* Header & Title Styling */
+.za-services-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    gap: 20px;
+}
+
+.za-services-subtitle {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--za-color-text-dark);
+    margin-bottom: 12px;
+}
+
+.za-services-title {
+    font-family: var(--za-font-family-serif);
+    font-size: 40px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--za-color-text-dark);
+    max-width: 520px;
+}
+
+/* Navigation Buttons */
+.za-services-navigation {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.za-slider-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    transition: all var(--za-transition-fast);
+}
+
+.za-slider-prev {
+    background-color: #ffffff;
+    color: #2c1a0e;
+}
+
+.za-slider-prev:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-2px);
+}
+
+.za-slider-next {
+    background-color: var(--za-color-brand-orange);
+    color: var(--za-color-white);
+}
+
+.za-slider-next:hover {
+    background-color: #d85200;
+    transform: translateY(-2px);
+}
+
+/* Service Card Container */
+.za-service-card {
+    background-color: #c17543;
+    /* Terracotta card background */
+    border-radius: 20px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform var(--za-transition-normal), box-shadow var(--za-transition-normal);
+}
+
+.za-service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Image Box */
+.za-service-image-box {
+    width: 100%;
+    height: 220px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.za-service-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--za-transition-normal);
+}
+
+.za-service-card:hover .za-service-img {
+    transform: scale(1.05);
+}
+
+/* Card Content Area */
+.za-service-content {
+    background-color: #e5b392;
+    /* Inner peach content container */
+    border-radius: 16px;
+    padding: 24px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.za-service-card-title {
+    font-family: var(--za-font-family-serif);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--za-color-text-dark);
+    margin-bottom: 16px;
+}
+
+.za-service-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--za-color-text-dark);
+    margin-bottom: 28px;
+    flex-grow: 1;
+}
+
+/* Composite Button Overrides inside Card */
+.za-service-action {
+    margin-top: auto;
+}
+
+.za-service-action .za-btn-composite .za-btn-text {
+    padding: 10px 22px;
+    font-size: 14px;
+}
+
+.za-service-action .za-btn-composite .za-btn-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+}
+
+/* ==========================================================================
+   SERVICES RESPONSIVE STYLES
+   ========================================================================== */
+@media (max-width: 992px) {
+    .za-services-title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .za-services-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    .za-services-section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+}
+
+@media (max-width: 576px) {
+    .za-services-title {
+        font-size: 26px;
+    }
+
+    .za-service-image-box {
+        height: 180px;
+    }
+}
+
+/* ==========================================================================
+   EXPERIENCE BANNER SECTION STYLES
+   ========================================================================== */
+.za-experience-banner {
+    position: relative;
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    /* background-image: url('assets/images/placeholder.jpg'); */
+    background-image: url('https://images.unsplash.com/photo-1693422662674-591afed861d7?q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Semi-transparent Dark Overlay for Text Legibility */
+.za-experience-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+}
+
+.za-experience-banner .za-container {
+    position: relative;
+    z-index: 2;
+}
+
+.za-experience-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.za-experience-subtitle {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 16px;
+    opacity: 0.95;
+}
+
+.za-experience-title {
+    font-family: var(--za-font-family-serif);
+    font-size: 42px;
+    line-height: 1.3;
+    font-weight: 600;
+    font-style: italic;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   EXPERIENCE BANNER RESPONSIVE STYLES
+   ========================================================================== */
+@media (max-width: 992px) {
+    .za-experience-banner {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .za-experience-title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 576px) {
+    .za-experience-banner {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .za-experience-subtitle {
+        font-size: 12px;
+        letter-spacing: 1.5px;
+        margin-bottom: 12px;
+    }
+
+    .za-experience-title {
+        font-size: 24px;
+        line-height: 1.35;
+    }
+}
+
+/* ==========================================================================
+   WHY CHOOSE US SECTION STYLES
+   ========================================================================== */
+.za-why-choose-us {
+    background-color: var(--za-color-bg, #fbf3ec);
+    padding-top: 90px;
+    padding-bottom: 100px;
+}
+
+/* Header Styling */
+.za-why-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.za-why-subtitle {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--za-color-text-dark, #2c1a0e);
+    margin-bottom: 16px;
+}
+
+.za-why-title {
+    font-family: var(--za-font-family-serif, 'Playfair Display', serif);
+    font-size: 42px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--za-color-text-dark, #2c1a0e);
+}
+
+/* Grid Layout (5 Equal Columns for Desktop) */
+.za-why-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+}
+
+.za-why-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform var(--za-transition-normal, 0.3s ease);
+}
+
+.za-why-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Number Circle Badge with Olive Dot */
+.za-why-badge-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 24px;
+}
+
+.za-why-number-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid var(--za-color-brand-orange, #e85d04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--za-font-family-serif, 'Playfair Display', serif);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--za-color-text-dark, #2c1a0e);
+    background-color: transparent;
+}
+
+.za-why-dot {
+    position: absolute;
+    top: 14px;
+    right: -5px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--za-color-brand-green, #3f6212);
+}
+
+/* Text Content */
+.za-why-item-title {
+    font-family: var(--za-font-family-serif, 'Playfair Display', serif);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--za-color-text-dark, #2c1a0e);
+    margin-bottom: 12px;
+    line-height: 1.25;
+}
+
+.za-why-item-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--za-color-text-dark);
+}
+
+/* ==========================================================================
+   WHY CHOOSE US RESPONSIVE STYLES
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .za-why-grid {
+        gap: 16px;
+    }
+
+    .za-why-item-title {
+        font-size: 18px;
+    }
+
+    .za-why-item-desc {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 992px) {
+    .za-why-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px 24px;
+    }
+
+    .za-why-title {
+        font-size: 34px;
+    }
+
+    .za-why-choose-us {
+        padding-top: 70px;
+        padding-bottom: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .za-why-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .za-why-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .za-why-header {
+        margin-bottom: 40px;
+    }
+
+    .za-why-title {
+        font-size: 28px;
+    }
+
+    .za-why-item {
+        align-items: center;
+        text-align: center;
+    }
+
+    .za-why-choose-us {
+        padding-top: 50px;
+        padding-bottom: 60px;
+    }
+}
+
+/* ==========================================================================
+   OUR MENU SECTION STYLES
+   ========================================================================== */
+.za-menu-section {
+    background-color: var(--za-color-bg2);
+    /* Matches dark taupe/grey background */
+    padding-top: 80px;
+    padding-bottom: 100px;
+}
+
+/* Header Styling */
+.za-menu-header {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.za-menu-subtitle {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--za-color-text-dark);
+    margin-bottom: 12px;
+}
+
+.za-menu-title {
+    font-family: var(--za-font-family-serif, 'Playfair Display', serif);
+    font-size: 40px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--za-color-text-dark);
+}
+
+/* Filter Navigation Bar */
+.za-menu-filter-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 48px;
+}
+
+.za-menu-filter-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border: 2px solid #e85d04;
+    border-radius: 40px;
+    padding: 6px 10px;
+    background-color: transparent;
+}
+
+.za-filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--za-color-text-dark);
+    background-color: transparent;
+    transition: all var(--za-transition-fast, 0.2s ease);
+}
+
+.za-filter-btn i {
+    font-size: 14px;
+}
+
+.za-filter-btn:hover,
+.za-filter-btn.za-active {
+    background-color: var(--za-color-brand-orange, #e85d04);
+    color: var(--za-color-white, #ffffff);
+}
+
+/* Isotope Grid & Card Container */
+.za-menu-grid {
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.za-menu-item-col {
+    width: 33.3333%;
+    padding: 0 12px;
+    margin-bottom: 28px;
+    box-sizing: border-box;
+}
+
+.za-menu-card {
+    background-color: #c17543;
+    /* Terracotta card container background */
+    border-radius: 20px;
+    padding: 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--za-transition-normal, 0.3s ease), box-shadow var(--za-transition-normal, 0.3s ease);
+}
+
+.za-menu-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.za-menu-img-box {
+    width: 100%;
+    height: 230px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.za-menu-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--za-transition-normal, 0.3s ease);
+}
+
+.za-menu-card:hover .za-menu-img {
+    transform: scale(1.05);
+}
+
+/* Card Body Area */
+.za-menu-card-body {
+    background-color: #e5b392;
+    /* Inner peach text block */
+    border-radius: 16px;
+    padding: 20px 18px 16px 18px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.za-menu-card-title {
+    font-family: var(--za-font-family-serif, 'Playfair Display', serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--za-color-text-dark, #2c1a0e);
+    margin-bottom: 6px;
+}
+
+.za-menu-card-desc {
+    font-size: 13px;
+    color: var(--za-color-text-dark);
+    margin-bottom: 20px;
+}
+
+/* Card Footer (Price & Button) */
+.za-menu-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.za-menu-price {
+    font-family: var(--za-font-family-serif, 'Playfair Display', serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--za-color-text-dark, #2c1a0e);
+}
+
+.za-menu-card .za-btn-composite .za-btn-text {
+    padding: 8px 18px;
+    font-size: 13px;
+}
+
+.za-menu-card .za-btn-composite .za-btn-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 11px;
+}
+
+/* ==========================================================================
+   OUR MENU RESPONSIVE STYLES
+   ========================================================================== */
+@media (max-width: 992px) {
+    .za-menu-item-col {
+        width: 50%;
+    }
+
+    .za-menu-title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 576px) {
+    .za-menu-item-col {
+        width: 100%;
+    }
+
+    .za-menu-filter-bar {
+        flex-direction: column;
+        border-radius: 20px;
+        width: 100%;
+    }
+
+    .za-filter-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .za-menu-title {
+        font-size: 28px;
+    }
+
+    .za-menu-section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+}
+
+/* ==========================================================================
+   ABOUT SECTION STYLES
+   ========================================================================== */
+.za-about-section {
+    background-color: var(--za-color-bg, #fbf3ec);
+    padding-top: 100px;
+    padding-bottom: 100px;
+    overflow: hidden;
+}
+
+.za-about-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+/* Image Card Styling */
+.za-about-image-wrapper {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.za-about-image-card {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    background-color: var(--za-color-card-bg, #eebf96);
+    padding-bottom: 16px;
+    border-radius: 20px;
+}
+
+.za-about-img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+}
+
+/* Content Area Styling */
+.za-about-subtitle {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--za-color-text-dark, #2c1a0e);
+    margin-bottom: 16px;
+}
+
+.za-about-title {
+    font-family: var(--za-font-family-serif, 'Playfair Display', serif);
+    font-size: 48px;
+    line-height: 1.15;
+    font-weight: 700;
+    color: var(--za-color-text-dark, #2c1a0e);
+    margin-bottom: 24px;
+}
+
+.za-about-description {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--za-color-text-dark);
+    max-width: 500px;
+    margin-bottom: 36px;
+}
+
+/* Composite Button Overrides */
+.za-about-action {
+    display: flex;
+    align-items: center;
+}
+
+/* ==========================================================================
+   ABOUT SECTION RESPONSIVE STYLES
+   ========================================================================== */
+@media (max-width: 992px) {
+    .za-about-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .za-about-image-wrapper {
+        justify-content: center;
+    }
+
+    .za-about-content {
+        text-align: center;
+    }
+
+    .za-about-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .za-about-action {
+        justify-content: center;
+    }
+
+    .za-about-title {
+        font-size: 38px;
+    }
+
+    .za-about-section {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+}
+
+@media (max-width: 576px) {
+    .za-about-title {
+        font-size: 30px;
+    }
+
+    .za-about-img {
+        height: 380px;
+    }
+
+    .za-about-section {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+
+/* ==========================================================================
+   TESTIMONIALS SECTION STYLES
+   ========================================================================== */
+.za-testimonials-section {
+    background-color: var(--za-color-bg, #fbf3ec);
+    padding-top: 100px;
+    padding-bottom: 100px;
+    overflow: hidden;
+}
+
+/* Header Styling */
+.za-testimonials-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    gap: 20px;
+}
+
+.za-testimonials-subtitle {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--za-color-text-dark, #2c1a0e);
+    margin-bottom: 16px;
+}
+
+.za-testimonials-title {
+    font-family: var(--za-font-family-serif, 'Playfair Display', serif);
+    font-size: 42px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--za-color-text-dark, #2c1a0e);
+}
+
+/* Swiper Navigation Arrows */
+.za-testimonials-navigation {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Testimonial Card */
+.za-testimonial-card {
+    background-color: #f3af83;
+    /* Soft warm peach color matching design */
+    border-radius: 20px;
+    padding: 40px 36px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--za-transition-normal, 0.3s ease), box-shadow var(--za-transition-normal, 0.3s ease);
+}
+
+.za-testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(44, 26, 14, 0.08);
+}
+
+/* Rating Stars */
+.za-testimonial-rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 24px;
+    color: #ffea79;
+    /* Soft bright yellow star color */
+    font-size: 16px;
+}
+
+/* Card Headline & Text */
+.za-testimonial-headline {
+    font-family: var(--za-font-family-base, 'DM Sans', sans-serif);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--za-color-text-dark, #2c1a0e);
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+
+.za-testimonial-text {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--za-color-text-dark);
+    margin-bottom: 32px;
+    flex-grow: 1;
+}
+
+/* Author Info Block */
+.za-testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: auto;
+}
+
+.za-testimonial-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.za-testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.za-testimonial-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.za-testimonial-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--za-color-text-dark, #2c1a0e);
+    margin-bottom: 2px;
+}
+
+.za-testimonial-role {
+    font-size: 14px;
+    color: var(--za-color-text-dark);
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   TESTIMONIALS RESPONSIVE STYLES
+   ========================================================================== */
+@media (max-width: 992px) {
+    .za-testimonials-title {
+        font-size: 34px;
+    }
+
+    .za-testimonials-section {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .za-testimonials-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    .za-testimonial-card {
+        padding: 30px 24px;
+    }
+}
+
+@media (max-width: 576px) {
+    .za-testimonials-title {
+        font-size: 28px;
+    }
+
+    .za-testimonials-section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+}
+
+/* ==========================================================================
+   FOOTER AREA STYLES
+   ========================================================================== */
+.za-footer {
+    background-color: #f3af83;
+    /* Warm peach tone matching the screenshot */
+    padding-top: 80px;
+    padding-bottom: 40px;
+    color: var(--za-color-text-dark, #2c1a0e);
+}
+
+/* Footer Top Layout Grid */
+.za-footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+/* Brand Column */
+.za-footer-brand-col {
+    max-width: 320px;
+}
+
+.za-footer-logo {
+    font-family: var(--za-font-family-serif, 'Playfair Display', serif);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--za-color-text-dark, #2c1a0e);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+    transition: opacity var(--za-transition-fast, 0.2s ease);
+}
+
+.za-footer-logo:hover {
+    opacity: 0.85;
+    color: var(--za-color-text-dark, #2c1a0e);
+}
+
+.za-footer-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #55443a;
+    margin-bottom: 28px;
+}
+
+/* Social Media Icons */
+.za-footer-socials {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.za-social-link {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: var(--za-color-text-dark, #2c1a0e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    text-decoration: none;
+    transition: transform var(--za-transition-fast, 0.2s ease), background-color var(--za-transition-fast, 0.2s ease), color var(--za-transition-fast, 0.2s ease);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.za-social-link:hover {
+    background-color: var(--za-color-brand-orange, #e85d04);
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* Navigation Columns */
+.za-footer-title {
+    font-family: var(--za-font-family-serif, 'Playfair Display', serif);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--za-color-text-dark, #2c1a0e);
+    margin-bottom: 24px;
+}
+
+.za-footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.za-footer-links li {
+    margin-bottom: 14px;
+}
+
+.za-footer-links li:last-child {
+    margin-bottom: 0;
+}
+
+.za-footer-links a {
+    font-size: 15px;
+    color: var(--za-color-text-dark);
+    text-decoration: none;
+    transition: color var(--za-transition-fast, 0.2s ease), transform var(--za-transition-fast, 0.2s ease);
+    display: inline-block;
+}
+
+.za-footer-links a:hover {
+    color: var(--za-color-text-dark, #2c1a0e);
+    transform: translateX(3px);
+}
+
+/* Divider Line */
+.za-footer-divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(44, 26, 14, 0.15);
+    margin-bottom: 30px;
+}
+
+/* Footer Bottom Layout */
+.za-footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #55443a;
+}
+
+.za-footer-copyright {
+    margin: 0;
+}
+
+.za-footer-legal {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.za-footer-legal a {
+    color: #55443a;
+    text-decoration: none;
+    transition: color var(--za-transition-fast, 0.2s ease);
+}
+
+.za-footer-legal a:hover {
+    color: var(--za-color-text-dark, #2c1a0e);
+}
+
+/* ==========================================================================
+   FOOTER RESPONSIVE STYLES
+   ========================================================================== */
+@media (max-width: 992px) {
+    .za-footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 30px;
+    }
+
+    .za-footer-brand-col {
+        grid-column: span 2;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .za-footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+
+    .za-footer-legal {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .za-footer-top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .za-footer-brand-col {
+        grid-column: span 1;
+    }
+
+    .za-footer {
+        padding-top: 60px;
+        padding-bottom: 30px;
+    }
+}

@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privchef - Luxury Private Dining Experience</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet"> 
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header class="za-header" id="za-header">
+        <div class="za-container">
+            <div class="za-header-wrapper">
+
+                <!-- Logo -->
+                <a href="#" class="za-logo">
+                    Privchef
+                </a>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="za-navbar" id="za-navbar">
+                    <ul class="za-nav-list">
+                        <li class="za-nav-item"><a href="#" class="za-nav-link za-active">Home</a></li>
+                        <li class="za-nav-item"><a href="#" class="za-nav-link">Our Story</a></li>
+                        <li class="za-nav-item"><a href="#" class="za-nav-link">Services</a></li>
+                        <li class="za-nav-item"><a href="#" class="za-nav-link">Personal Chef</a></li>
+                        <li class="za-nav-item"><a href="#" class="za-nav-link">Private Dining</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Header Actions -->
+                <div class="za-header-actions">
+                    <a href="#" class="za-btn za-btn-primary">Reserve a Table</a>
+                    <button class="za-menu-toggle" id="za-menu-toggle" aria-label="Toggle Navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar Menu Overlay -->
+    <div class="za-sidebar-overlay" id="za-sidebar-overlay"></div>
+
+    <!-- Mobile Sidebar Menu -->
+    <div class="za-sidebar" id="za-sidebar">
+        <div class="za-sidebar-header">
+            <a href="#" class="za-logo">Privchef</a>
+            <button class="za-sidebar-close" id="za-sidebar-close" aria-label="Close Navigation">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="za-sidebar-body" id="za-sidebar-body">
+            <!-- Desktop menu cloned here dynamically via JavaScript -->
+        </div>
+        <div class="za-sidebar-footer">
+            <a href="#" class="za-btn za-btn-primary za-btn-full">Reserve a Table</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="za-hero">
+        <div class="za-container">
+            <div class="za-hero-wrapper">
+
+                <!-- Hero Content -->
+                <div class="za-hero-content">
+                    <span class="za-hero-subtitle">Luxury Private Dining Experience</span>
+                    <h1 class="za-hero-title">
+                        Private Chef Services <br>
+                        Crafted for <span>Your Home</span>
+                    </h1>
+                    <p class="za-hero-description">
+                        Enjoy restaurant-quality dining without leaving home. Our experienced private chefs create
+                        personalized menus, prepare every dish fresh in your kitchen, and deliver an unforgettable fine
+                        dining experience for you and your guests.
+                    </p>
+                    <div class="za-hero-action">
+                        <a href="#" class="za-btn-composite">
+                            <span class="za-btn-text">Get Started</span>
+                            <span class="za-btn-icon">
+                                <!-- <i class="fa-solid fa-arrow-up-right-from-square"></i> -->
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="za-hero-image-wrapper">
+                    <div class="za-hero-image-card">
+                        <!-- <img src="assets/images/placeholder.jpg" alt="Private Chef Slicing Freshly Cooked Meat"
+                            class="za-hero-img"> -->
+                        <img src="https://images.unsplash.com/photo-1720701247853-f8f9dd8bf330?q=80"
+                            alt="Private Chef Slicing Freshly Cooked Meat" class="za-hero-img">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="za-services-section" id="za-services">
+        <div class="za-container">
+
+            <!-- Section Header with Title and Swiper Controls -->
+            <div class="za-services-header">
+                <div class="za-services-title-wrapper">
+                    <span class="za-services-subtitle">OUR SERVICES</span>
+                    <h2 class="za-services-title">Exceptional Dining Tailored to Every Occasion</h2>
+                </div>
+
+                <!-- Swiper Navigation Arrows -->
+                <div class="za-services-navigation">
+                    <button class="za-slider-btn za-slider-prev" id="za-services-prev" aria-label="Previous Slide">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="za-slider-btn za-slider-next" id="za-services-next" aria-label="Next Slide">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Swiper Slider Container -->
+            <div class="swiper za-services-slider">
+                <div class="swiper-wrapper">
+
+                    <!-- Slide 1: Private Dinner Events -->
+                    <div class="swiper-slide">
+                        <div class="za-service-card">
+                            <div class="za-service-image-box">
+                                <!-- <img src="assets/images/placeholder.jpg" alt="Private Dinner Events" -->
+                                <img src="https://images.unsplash.com/photo-1536392706976-e486e2ba97af?q=80"
+                                    alt="Private Dinner Events" class="za-service-img">
+                            </div>
+                            <div class="za-service-content">
+                                <h3 class="za-service-card-title">Private Dinner Events</h3>
+                                <p class="za-service-description">
+                                    Celebrate birthdays, anniversaries, family gatherings, or romantic evenings with a
+                                    custom multi-course dining experience prepared in your own home.
+                                </p>
+                                <div class="za-service-action">
+                                    <a href="#" class="za-btn-composite">
+                                        <span class="za-btn-text">Learn More</span>
+                                        <span class="za-btn-icon">
+                                            <!-- <i class="fa-solid fa-arrow-up-right-from-square"></i> -->
+                                            <i class="fa-solid fa-arrow-right"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Weekly Meal Prep -->
+                    <div class="swiper-slide">
+                        <div class="za-service-card">
+                            <div class="za-service-image-box">
+                                <!-- <img src="assets/images/placeholder.jpg" alt="Weekly Meal Prep" class="za-service-img"> -->
+                                <img src="https://plus.unsplash.com/premium_photo-1700760416257-7feafe6fe779?q=80"
+                                    alt="Weekly Meal Prep" class="za-service-img">
+                            </div>
+                            <div class="za-service-content">
+                                <h3 class="za-service-card-title">Weekly Meal Prep</h3>
+                                <p class="za-service-description">
+                                    Healthy, freshly prepared meals customized to your dietary preferences and delivered
+                                    with convenience for your busy lifestyle.
+                                </p>
+                                <div class="za-service-action">
+                                    <a href="#" class="za-btn-composite">
+                                        <span class="za-btn-text">View Plans</span>
+                                        <span class="za-btn-icon">
+                                            <!-- <i class="fa-solid fa-arrow-up-right-from-square"></i> -->
+                                            <i class="fa-solid fa-arrow-right"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Chef Experience -->
+                    <div class="swiper-slide">
+                        <div class="za-service-card">
+                            <div class="za-service-image-box">
+                                <!-- <img src="assets/images/placeholder.jpg" alt="Chef Experience" class="za-service-img"> -->
+                                <img src="https://images.unsplash.com/photo-1575691386840-d355059d6341?q=80"
+                                    alt="Chef Experience" class="za-service-img">
+                            </div>
+                            <div class="za-service-content">
+                                <h3 class="za-service-card-title">Chef Experience</h3>
+                                <p class="za-service-description">
+                                    Transform your home into a fine dining restaurant with a professional chef, premium
+                                    ingredients, elegant presentation, and outstanding service.
+                                </p>
+                                <div class="za-service-action">
+                                    <a href="#" class="za-btn-composite">
+                                        <span class="za-btn-text">Learn More</span>
+                                        <span class="za-btn-icon">
+                                            <!-- <i class="fa-solid fa-arrow-up-right-from-square"></i> -->
+                                            <i class="fa-solid fa-arrow-right"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: Chef Experience -->
+                    <div class="swiper-slide">
+                        <div class="za-service-card">
+                            <div class="za-service-image-box">
+                                <!-- <img src="assets/images/placeholder.jpg" alt="Chef Experience" class="za-service-img"> -->
+                                <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?q=80"
+                                    alt="Chef Experience" class="za-service-img">
+                            </div>
+                            <div class="za-service-content">
+                                <h3 class="za-service-card-title">Chef Cooked</h3>
+                                <p class="za-service-description">
+                                    Transform your home into a fine dining restaurant with a professional chef, premium
+                                    ingredients, elegant presentation, and outstanding service.
+                                </p>
+                                <div class="za-service-action">
+                                    <a href="#" class="za-btn-composite">
+                                        <span class="za-btn-text">Learn More</span>
+                                        <span class="za-btn-icon">
+                                            <!-- <i class="fa-solid fa-arrow-up-right-from-square"></i> -->
+                                            <i class="fa-solid fa-arrow-right"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Experience Banner Section -->
+    <section class="za-experience-banner" id="za-experience-banner">
+        <div class="za-experience-overlay"></div>
+        <div class="za-container">
+            <div class="za-experience-content">
+                <span class="za-experience-subtitle">AN ALL INCLUSIVE EXPERIENCE</span>
+                <h2 class="za-experience-title">
+                    We handle the cooking, serving, and cleanup, with two chefs and a dedicated server.
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="za-why-choose-us" id="za-why-choose-us">
+        <div class="za-container">
+
+            <!-- Section Header -->
+            <div class="za-why-header">
+                <span class="za-why-subtitle">WHY CHOOSE US</span>
+                <h2 class="za-why-title">
+                    Why Families Trust <br>
+                    Our Private Chef Service
+                </h2>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="za-why-grid">
+
+                <!-- Feature Item 1 -->
+                <div class="za-why-item">
+                    <div class="za-why-badge-wrapper">
+                        <div class="za-why-number-circle">1</div>
+                        <span class="za-why-dot"></span>
+                    </div>
+                    <h3 class="za-why-item-title">Fresh Ingredients</h3>
+                    <p class="za-why-item-desc">
+                        Only premium seasonal ingredients sourced from trusted local suppliers.
+                    </p>
+                </div>
+
+                <!-- Feature Item 2 -->
+                <div class="za-why-item">
+                    <div class="za-why-badge-wrapper">
+                        <div class="za-why-number-circle">2</div>
+                        <span class="za-why-dot"></span>
+                    </div>
+                    <h3 class="za-why-item-title">Professional Chefs</h3>
+                    <p class="za-why-item-desc">
+                        Experienced culinary professionals passionate about exceptional dining.
+                    </p>
+                </div>
+
+                <!-- Feature Item 3 -->
+                <div class="za-why-item">
+                    <div class="za-why-badge-wrapper">
+                        <div class="za-why-number-circle">3</div>
+                        <span class="za-why-dot"></span>
+                    </div>
+                    <h3 class="za-why-item-title">Customized Menus</h3>
+                    <p class="za-why-item-desc">
+                        Every menu is designed around your tastes, allergies, and dietary needs.
+                    </p>
+                </div>
+
+                <!-- Feature Item 4 -->
+                <div class="za-why-item">
+                    <div class="za-why-badge-wrapper">
+                        <div class="za-why-number-circle">4</div>
+                        <span class="za-why-dot"></span>
+                    </div>
+                    <h3 class="za-why-item-title">Stress Experience</h3>
+                    <p class="za-why-item-desc">
+                        Relax while we prepare, serve, and clean everything for you.
+                    </p>
+                </div>
+
+                <!-- Feature Item 5 -->
+                <div class="za-why-item">
+                    <div class="za-why-badge-wrapper">
+                        <div class="za-why-number-circle">5</div>
+                        <span class="za-why-dot"></span>
+                    </div>
+                    <h3 class="za-why-item-title">Memorable Moments</h3>
+                    <p class="za-why-item-desc">
+                        Create unforgettable dining experiences for every celebration.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Our Menu Section -->
+    <section class="za-menu-section" id="za-menu">
+        <div class="za-container">
+
+            <!-- Section Header -->
+            <div class="za-menu-header">
+                <span class="za-menu-subtitle">OUR MENU</span>
+                <h2 class="za-menu-title">A Taste of Fine Dining</h2>
+            </div>
+
+            <!-- Filter Buttons Container -->
+            <div class="za-menu-filter-wrapper">
+                <div class="za-menu-filter-bar">
+                    <button class="za-filter-btn za-active" data-filter="*">
+                        <i class="fa-solid fa-utensils"></i> Starters
+                    </button>
+                    <button class="za-filter-btn" data-filter=".za-main-course">
+                        <i class="fa-solid fa-bell-concierge"></i> Main Course
+                    </button>
+                    <button class="za-filter-btn" data-filter=".za-desserts">
+                        <i class="fa-solid fa-cake-candles"></i> Desserts
+                    </button>
+                </div>
+            </div>
+
+            <!-- Menu Items Isotope Grid -->
+            <div class="za-menu-grid">
+
+                <!-- Menu Item 1 -->
+                <div class="za-menu-item-col za-starters">
+                    <div class="za-menu-card">
+                        <div class="za-menu-img-box">
+                            <img src="https://images.unsplash.com/photo-1636044993194-9d2ec4b0cb89?q=80"
+                                alt="Truffle Mushroom Soup" class="za-menu-img">
+                        </div>
+                        <div class="za-menu-card-body">
+                            <h3 class="za-menu-card-title">Truffle Mushroom Soup</h3>
+                            <p class="za-menu-card-desc">Wild mushrooms, truffle oil & cream</p>
+                            <div class="za-menu-card-footer">
+                                <span class="za-menu-price">$12</span>
+                                <a href="#" class="za-btn-composite">
+                                    <span class="za-btn-text">Add to Order</span>
+                                    <span class="za-btn-icon">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 2 -->
+                <div class="za-menu-item-col za-starters za-main-course">
+                    <div class="za-menu-card">
+                        <div class="za-menu-img-box">
+                            <img src="https://images.unsplash.com/photo-1603133872575-9989ab68d24c?q=80"
+                                alt="Crispy Calamari" class="za-menu-img">
+                        </div>
+                        <div class="za-menu-card-body">
+                            <h3 class="za-menu-card-title">Crispy Calamari</h3>
+                            <p class="za-menu-card-desc">Wild mushrooms, truffle oil & cream</p>
+                            <div class="za-menu-card-footer">
+                                <span class="za-menu-price">$14</span>
+                                <a href="#" class="za-btn-composite">
+                                    <span class="za-btn-text">Add to Order</span>
+                                    <span class="za-btn-icon">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 3 -->
+                <div class="za-menu-item-col za-main-course">
+                    <div class="za-menu-card">
+                        <div class="za-menu-img-box">
+                            <img src="https://images.unsplash.com/photo-1649400454485-b8ad827f929d?q=80"
+                                alt="Burrata & Heirloom Tomato" class="za-menu-img">
+                        </div>
+                        <div class="za-menu-card-body">
+                            <h3 class="za-menu-card-title">Burrata & Heirloom Tomato </h3>
+                            <p class="za-menu-card-desc">Wild mushrooms, truffle oil & cream</p>
+                            <div class="za-menu-card-footer">
+                                <span class="za-menu-price">$15</span>
+                                <a href="#" class="za-btn-composite">
+                                    <span class="za-btn-text">Add to Order</span>
+                                    <span class="za-btn-icon">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 4 -->
+                <div class="za-menu-item-col za-starters">
+                    <div class="za-menu-card">
+                        <div class="za-menu-img-box">
+                            <img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef?q=80"
+                                alt="Grilled Ribeye Steak" class="za-menu-img">
+                        </div>
+                        <div class="za-menu-card-body">
+                            <h3 class="za-menu-card-title">Grilled Ribeye Steak</h3>
+                            <p class="za-menu-card-desc">Wild mushrooms, truffle oil & cream</p>
+                            <div class="za-menu-card-footer">
+                                <span class="za-menu-price">$38</span>
+                                <a href="#" class="za-btn-composite">
+                                    <span class="za-btn-text">Add to Order</span>
+                                    <span class="za-btn-icon">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 5 -->
+                <div class="za-menu-item-col za-desserts">
+                    <div class="za-menu-card">
+                        <div class="za-menu-img-box">
+                            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80"
+                                alt="Pan-Seared Salmon" class="za-menu-img">
+                        </div>
+                        <div class="za-menu-card-body">
+                            <h3 class="za-menu-card-title">Pan-Seared Salmon</h3>
+                            <p class="za-menu-card-desc">Wild mushrooms, truffle oil & cream</p>
+                            <div class="za-menu-card-footer">
+                                <span class="za-menu-price">$29</span>
+                                <a href="#" class="za-btn-composite">
+                                    <span class="za-btn-text">Add to Order</span>
+                                    <span class="za-btn-icon">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 6 -->
+                <div class="za-menu-item-col za-desserts">
+                    <div class="za-menu-card">
+                        <div class="za-menu-img-box">
+                            <img src="https://images.unsplash.com/photo-1645739840979-0226a7ac7163?q=80"
+                                alt="Wild Mushroom Risotto" class="za-menu-img">
+                        </div>
+                        <div class="za-menu-card-body">
+                            <h3 class="za-menu-card-title">Wild Mushroom Risotto</h3>
+                            <p class="za-menu-card-desc">Wild mushrooms, truffle oil & cream</p>
+                            <div class="za-menu-card-footer">
+                                <span class="za-menu-price">$24</span>
+                                <a href="#" class="za-btn-composite">
+                                    <span class="za-btn-text">Add to Order</span>
+                                    <span class="za-btn-icon">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="za-about-section" id="za-about">
+        <div class="za-container">
+            <div class="za-about-wrapper">
+
+                <!-- Image Side -->
+                <div class="za-about-image-wrapper">
+                    <div class="za-about-image-card">
+                        <img src="https://plus.unsplash.com/premium_photo-1661600335333-7878bb27de79?q=80"
+                            alt="Chef slicing freshly cooked meat" class="za-about-img">
+                    </div>
+                </div>
+
+                <!-- Content Side -->
+                <div class="za-about-content">
+                    <span class="za-about-subtitle">About Privchef Cooking</span>
+                    <h2 class="za-about-title">Turing homes into Restaurant</h2>
+                    <p class="za-about-description">
+                        Our mission is simple—deliver unforgettable dining experiences without the stress of cooking or
+                        entertaining. Every event is thoughtfully planned and professionally executed by experienced
+                        chefs dedicated to exceptional food and hospitality.
+                    </p>
+                    <div class="za-about-action">
+                        <a href="#" class="za-btn-composite">
+                            <span class="za-btn-text">Get Started</span>
+                            <span class="za-btn-icon">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="za-testimonials-section" id="za-testimonials">
+        <div class="za-container">
+
+            <!-- Section Header with Controls -->
+            <div class="za-testimonials-header">
+                <div class="za-testimonials-title-wrapper">
+                    <span class="za-testimonials-subtitle">Testimonials</span>
+                    <h2 class="za-testimonials-title">
+                        Exceptional Dining Tailored to <br>
+                        Every Occasion
+                    </h2>
+                </div>
+
+                <!-- Swiper Navigation Arrows -->
+                <div class="za-testimonials-navigation">
+                    <button class="za-slider-btn za-slider-prev" id="za-testimonials-prev"
+                        aria-label="Previous Testimonial">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="za-slider-btn za-slider-next" id="za-testimonials-next"
+                        aria-label="Next Testimonial">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Swiper Slider Container -->
+            <div class="swiper za-testimonials-slider">
+                <div class="swiper-wrapper">
+
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="za-testimonial-card">
+                            <!-- Rating Stars -->
+                            <div class="za-testimonial-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+
+                            <h3 class="za-testimonial-headline">“An Unforgettable Dining Experience”</h3>
+
+                            <p class="za-testimonial-text">
+                                From the elegant atmosphere to every beautifully presented dish, everything was
+                                exceptional. The service was warm, attentive, and truly made our evening special.
+                            </p>
+
+                            <!-- Author Bio -->
+                            <div class="za-testimonial-author">
+                                <div class="za-testimonial-avatar">
+                                    <img src="https://images.unsplash.com/photo-1531891570158-e71b35a485bc?q=80"
+                                        alt="Olivia Bennett">
+                                </div>
+                                <div class="za-testimonial-info">
+                                    <h4 class="za-testimonial-name">— Olivia Bennett</h4>
+                                    <span class="za-testimonial-role">Regular Guest</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="za-testimonial-card">
+                            <!-- Rating Stars -->
+                            <div class="za-testimonial-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+
+                            <h3 class="za-testimonial-headline">“Beautiful Atmosphere & Amazing Food”</h3>
+
+                            <p class="za-testimonial-text">
+                                From the elegant atmosphere to every beautifully presented dish, everything was
+                                exceptional. The service was warm, attentive, and truly made our evening special.
+                            </p>
+
+                            <!-- Author Bio -->
+                            <div class="za-testimonial-author">
+                                <div class="za-testimonial-avatar">
+                                    <img src="https://images.unsplash.com/photo-1618088129969-bcb0c051985e?q=80"
+                                        alt="Daniel Morgan">
+                                </div>
+                                <div class="za-testimonial-info">
+                                    <h4 class="za-testimonial-name">— Daniel Morgan</h4>
+                                    <span class="za-testimonial-role">Regular Guest</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="za-testimonial-card">
+                            <!-- Rating Stars -->
+                            <div class="za-testimonial-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+
+                            <h3 class="za-testimonial-headline">“Remarkable Culinary Experience”</h3>
+
+                            <p class="za-testimonial-text">
+                                From the elegant atmosphere to every beautifully presented dish, everything was
+                                exceptional. The service was warm, attentive, and truly made our evening special.
+                            </p>
+
+                            <!-- Author Bio -->
+                            <div class="za-testimonial-author">
+                                <div class="za-testimonial-avatar">
+                                    <img src="https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?q=80"
+                                        alt="Sophia Anderson">
+                                </div>
+                                <div class="za-testimonial-info">
+                                    <h4 class="za-testimonial-name">— Sophia Anderson</h4>
+                                    <span class="za-testimonial-role">Regular Guest</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="za-footer" id="za-footer">
+        <div class="za-container">
+
+            <!-- Top Footer Content Grid -->
+            <div class="za-footer-top">
+
+                <!-- Brand Information Column -->
+                <div class="za-footer-col za-footer-brand-col">
+                    <a href="#" class="za-footer-logo" aria-label="Privchef Home">
+                        Privchef
+                    </a>
+                    <p class="za-footer-desc">
+                        Our vision is to provide convenience and help increase your sales business.
+                    </p>
+                    <div class="za-footer-socials">
+                        <a href="#" class="za-social-link" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="za-social-link" aria-label="Twitter">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" class="za-social-link" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation Column: About -->
+                <div class="za-footer-col">
+                    <h3 class="za-footer-title">About</h3>
+                    <ul class="za-footer-links">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Our Menu</a></li>
+                        <li><a href="#">Meet the Chef</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Navigation Column: Community -->
+                <div class="za-footer-col">
+                    <h3 class="za-footer-title">Community</h3>
+                    <ul class="za-footer-links">
+                        <li><a href="#">Events & Gatherings</a></li>
+                        <li><a href="#">Private Dining</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                    </ul>
+                </div>
+
+                <!-- Navigation Column: Discover -->
+                <div class="za-footer-col">
+                    <h3 class="za-footer-title">Discover</h3>
+                    <ul class="za-footer-links">
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">Our Locations</a></li>
+                        <li><a href="#">Special Offers</a></li>
+                        <li><a href="#">News & Journal</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Divider Line -->
+            <div class="za-footer-divider"></div>
+
+            <!-- Bottom Footer Links & Copyright -->
+            <div class="za-footer-bottom">
+                <p class="za-footer-copyright">
+                    &copy;2022 Privchef. All rights reserved
+                </p>
+                <div class="za-footer-legal">
+                    <a href="#">Privacy & Policy</a>
+                    <a href="#">Terms & Condition</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Isotope JS Library -->
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!-- Main Script -->
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
